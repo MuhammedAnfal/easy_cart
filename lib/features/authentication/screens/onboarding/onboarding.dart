@@ -34,6 +34,7 @@ class OnBoardingScreen extends StatelessWidget {
           // skip button
           const OnBoardingSkip(),
 
+          
           // dot navigation  smooth page indicator
           const OnBoardingDotNavigation(),
 

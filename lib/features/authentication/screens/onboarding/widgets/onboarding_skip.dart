@@ -1,4 +1,5 @@
 import 'package:e_commerce/features/authentication/controllers/contollers.onboarding/onboarding_controller.dart';
+import 'package:e_commerce/features/utils/helpers/helper_function.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class OnBoardingSkip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       top: AppDeviceUtility.getAppBarHeight(),
-      right: AppSizes.appBarHeight,
+      right: AppHelperFunction.screenWidth() * 0.03,
       child: TextButton(
           onPressed: () => OnboardingController.instance.skipPage(),
           child: Text("Skip")),
