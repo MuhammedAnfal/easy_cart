@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-
 import 'curved_edges.dart';
 
 class AppCurvedEdgeWidget extends StatelessWidget {
