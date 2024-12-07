@@ -21,6 +21,18 @@ class AppImages{
   static const String deliveredEmailIllustration = "assets/images/animations/deliveredEmailIllustration.png";
   static const String staticSuccessIllustration = "assets/images/animations/staticSuccessIllustration.png";
 
+  //-- category icons
+  static const String sportsIcon = 'assets/icons/categories/sports.png';
+  static const String clothIcon = 'assets/icons/categories/cloth.png';
+  static const String furnitureIcon = 'assets/icons/categories/furniture.png';
+  static const String electronicIcon = 'assets/icons/categories/electronics.png';
+  static const String animalsIcon = 'assets/icons/categories/animals.png';
+  static const String shoesIcon = 'assets/icons/categories/shoes.png';
+
+  //-- banner image
+  static const String banner1 = 'assets/images/banners/banner1.jpg';
+  static const String banner2 = 'assets/images/banners/banner2.jpg';
+  static const String banner3 = 'assets/images/banners/banner3.jpg';
 
 
 }
