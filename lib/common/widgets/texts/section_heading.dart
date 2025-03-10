@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class AppSectionHeading extends StatelessWidget {
   const AppSectionHeading({
     super.key,
@@ -17,14 +18,15 @@ class AppSectionHeading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          'Popular Categories',
+          title,
           style: Theme.of(context).textTheme.headlineSmall!.apply(color: textColor),
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
-        if(showActionButton)  TextButton(onPressed: onPressed, child:  Text(buttonTitle))
+        if (showActionButton) TextButton(onPressed: onPressed, child: Text(buttonTitle))
       ],
     );
   }

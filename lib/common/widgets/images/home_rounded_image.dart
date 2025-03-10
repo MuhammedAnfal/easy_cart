@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
 import '../../../features/utils/constants/colors.dart';
-import '../../../features/utils/constants/image_strings.dart';
 import '../../../features/utils/constants/sizes.dart';
 
 class HomeRoundedImage extends StatelessWidget {

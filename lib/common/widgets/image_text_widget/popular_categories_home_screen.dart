@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:e_commerce/common/widgets/images/app_circular_images.dart';
 import 'package:flutter/material.dart';
 
 import '../../../features/utils/constants/colors.dart';
@@ -13,11 +13,13 @@ class AppPopularCategoriesWidget extends StatelessWidget {
     this.textColor = AppColors.white,
     this.backgroundColor = AppColors.white,
     this.ontap,
+    this.isNetworkImage = false,
   });
 
   final String image, title;
   final Color textColor;
   final Color? backgroundColor;
+  final bool isNetworkImage;
   final void Function()? ontap;
 
   @override
@@ -26,26 +28,22 @@ class AppPopularCategoriesWidget extends StatelessWidget {
     return GestureDetector(
       onTap: ontap,
       child: Padding(
-        padding: EdgeInsets.only(right: AppSizes.spaceBtwItems),
+        padding: const EdgeInsets.only(right: AppSizes.spaceBtwItems),
         child: Column(
           children: [
-            Container(
+            AppCircularImage(
               height: AppHelperFunction.screenHeight() * 0.06,
               width: AppHelperFunction.screenWidth() * 0.13,
-              padding: const EdgeInsets.all(AppSizes.sm),
-              decoration: BoxDecoration(color: backgroundColor ?? (dark ? AppColors.black : AppColors.white) , borderRadius: BorderRadius.circular(100)),
-              child: Center(
-                child: Image(
-                    image: AssetImage(image),
-                    fit: BoxFit.cover,
-                    color: dark ? AppColors.light : AppColors.dark) ,
-              ),
+              padding: AppSizes.sm * 1.4,
+              isNetworkImage: isNetworkImage,
+              overlayColor: dark ? AppColors.light : AppColors.dark,
+              image: image,
             ),
             const SizedBox(
               height: AppSizes.spaceBtwItems / 2,
             ),
             Padding(
-              padding:  EdgeInsets.only(left:AppHelperFunction.screenWidth() * 0.05),
+              padding: EdgeInsets.only(left: AppHelperFunction.screenWidth() * 0.05),
               child: SizedBox(
                   width: 55,
                   child: Text(

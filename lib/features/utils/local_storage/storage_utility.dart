@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 
 class AppLocalStorage {
@@ -18,6 +17,7 @@ class AppLocalStorage {
 
   T? readData<T>(String key){
     _storage.read<T>(key);
+    return null;
   }
 
   Future<void>removeData(String key)async{

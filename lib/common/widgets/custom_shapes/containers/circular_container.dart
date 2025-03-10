@@ -1,3 +1,4 @@
+import 'package:e_commerce/features/utils/constants/sizes.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../../../../features/utils/constants/colors.dart';
@@ -5,22 +6,26 @@ import '../../../../features/utils/constants/colors.dart';
 class TcircularContainer extends StatelessWidget {
   const TcircularContainer({
     super.key,
-    this.height = 400,
-    this.width = 400,
-    this.radius = 400,
-    this.padding = 0,
+    this.height,
+    this.width,
+    this.radius = AppSizes.cardRadiusLg,
+    this.padding,
     this.child,
-    this.backgroudColor = AppColors.white,
+    this.backgroudColor,
     this.margin,
+    this.borderColor = AppColors.borderPrimary,
+    this.showBorder = true,
   });
 
   final double? height;
   final double? width;
   final double radius;
-  final double padding;
+  final EdgeInsetsGeometry? padding;
   final Widget? child;
-  final Color backgroudColor;
-  final EdgeInsets? margin;
+  final Color? backgroudColor;
+  final Color borderColor;
+  final EdgeInsetsGeometry? margin;
+  final bool showBorder;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +33,11 @@ class TcircularContainer extends StatelessWidget {
       height: height,
       width: width,
       margin: margin,
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(radius), color: backgroudColor),
+      padding: padding,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(radius),
+          color: backgroudColor,
+          border: showBorder ? Border.all(color: borderColor) : null),
       child: child,
     );
   }

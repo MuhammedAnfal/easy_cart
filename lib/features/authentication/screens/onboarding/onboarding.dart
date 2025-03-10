@@ -1,14 +1,12 @@
-import 'package:e_commerce/features/authentication/controllers/contollers.onboarding/onboarding_controller.dart';
+import 'package:e_commerce/features/authentication/controllers/onboarding/onboarding_controller.dart';
 import 'package:e_commerce/features/authentication/screens/onboarding/widgets/onboarding_dot_navigation.dart';
 import 'package:e_commerce/features/authentication/screens/onboarding/widgets/onboarding_next_button.dart';
 import 'package:e_commerce/features/authentication/screens/onboarding/widgets/onboarding_page.dart';
 import 'package:e_commerce/features/authentication/screens/onboarding/widgets/onboarding_skip.dart';
 import 'package:e_commerce/features/utils/constants/image_strings.dart';
 import 'package:e_commerce/features/utils/constants/text_strings.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
@@ -22,7 +20,7 @@ class OnBoardingScreen extends StatelessWidget {
 
           // horizontal scrollbar page
           PageView(
-            onPageChanged: controller.currentPageIndex,
+            onPageChanged: controller.currentPageIndex.call,
             controller: controller.controller,
             children: const [
               OnBoardingPage(title: AppTexts.onBoardingTitle,image:AppImages.onBoardingimage ,subTitle:AppTexts.onBoardingSubTitle),

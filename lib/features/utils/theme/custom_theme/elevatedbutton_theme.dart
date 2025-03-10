@@ -1,4 +1,3 @@
-import 'package:e_commerce/main.dart';
 import 'package:flutter/material.dart';
 
 class AppElevatedButtonTheme {
@@ -11,8 +10,8 @@ class AppElevatedButtonTheme {
       disabledForegroundColor: Colors.grey,
       disabledBackgroundColor: Colors.grey,
       side: const BorderSide(color: Colors.blue),
-      padding: EdgeInsets.symmetric(vertical: 18),
-      textStyle:  TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w600),
+      padding: const EdgeInsets.symmetric(vertical: 18),
+      textStyle:  const TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w600),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
     )
   );
@@ -24,8 +23,8 @@ class AppElevatedButtonTheme {
           disabledForegroundColor: Colors.grey,
           disabledBackgroundColor: Colors.grey,
           side: const BorderSide(color: Colors.blue),
-          padding: EdgeInsets.symmetric(vertical:18),
-          textStyle:  TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w600),
+          padding: const EdgeInsets.symmetric(vertical:18),
+          textStyle:  const TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.w600),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
       )
   );

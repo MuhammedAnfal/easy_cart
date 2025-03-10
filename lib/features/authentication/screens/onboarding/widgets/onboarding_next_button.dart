@@ -1,5 +1,4 @@
-import 'package:e_commerce/features/authentication/controllers/contollers.onboarding/onboarding_controller.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:e_commerce/features/authentication/controllers/onboarding/onboarding_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -26,7 +25,7 @@ class OnBoardingNextButton extends StatelessWidget {
               onPressed: () {
             OnboardingController.instance.nextPage();
               },
-          child: Icon(
+          child: const Icon(
               Iconsax.arrow_right_3,
            color: Colors.white,
           ),

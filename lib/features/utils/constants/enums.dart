@@ -1,7 +1,8 @@
 /// List of enums
 /// they cannot be created under the class
+library;
 
-enum TextSized { small, medium, large}
+enum TextSizes { small, medium, large}
 
 enum OrderStatus { processing, shipped, delivered}
 

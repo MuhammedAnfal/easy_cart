@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:e_commerce/features/shop/controllers/banner_controller.dart';
 import 'package:e_commerce/features/shop/controllers/home_controller.dart';
 import 'package:e_commerce/features/utils/constants/colors.dart';
 import 'package:flutter/cupertino.dart';
@@ -7,7 +8,6 @@ import 'package:get/get.dart';
 
 import '../../../../../common/widgets/custom_shapes/containers/circular_container.dart';
 import '../../../../../common/widgets/images/home_rounded_image.dart';
-import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/helpers/helper_function.dart';
 
@@ -21,8 +21,7 @@ class HomePromoCarousel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(HomeController());
-
+    final controller = Get.put(BannerController());
     return Column(
       children: [
         CarouselSlider(
@@ -33,7 +32,7 @@ class HomePromoCarousel extends StatelessWidget {
               },
               viewportFraction: 1),
         ),
-        SizedBox(
+        const SizedBox(
           height: AppSizes.spaceBtwItems,
         ),
         Center(

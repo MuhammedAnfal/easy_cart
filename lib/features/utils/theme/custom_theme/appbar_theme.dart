@@ -1,10 +1,9 @@
-import 'package:e_commerce/main.dart';
 import 'package:flutter/material.dart';
 
 class AppbarTheme {
   AppbarTheme._();
 
-  static AppBarTheme lightTheme = AppBarTheme(
+  static AppBarTheme lightTheme = const AppBarTheme(
     elevation: 0,
     centerTitle: false,
     scrolledUnderElevation: 0,
@@ -15,7 +14,7 @@ class AppbarTheme {
     titleTextStyle: TextStyle(fontSize:18.0,fontWeight: FontWeight.w600,color: Colors.black)
   );
 
-  static AppBarTheme darkTheme = AppBarTheme( elevation: 0,
+  static AppBarTheme darkTheme = const AppBarTheme( elevation: 0,
       centerTitle: false,
       scrolledUnderElevation: 0,
       backgroundColor: Colors.transparent,

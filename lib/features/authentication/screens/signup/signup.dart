@@ -1,7 +1,6 @@
 import 'package:e_commerce/features/authentication/screens/signup/widgets/signupform.dart';
 import 'package:e_commerce/features/utils/constants/sizes.dart';
 import 'package:e_commerce/features/utils/constants/text_strings.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -13,7 +12,7 @@ class SignupScreen extends StatelessWidget {
       appBar: AppBar(),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(AppSizes.defaultSpace),
+          padding: const EdgeInsets.all(AppSizes.defaultSpace),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -26,7 +25,7 @@ class SignupScreen extends StatelessWidget {
                 height: AppSizes.spaceBtwSections,
               ),
 
-              SignUpForm()
+              const SignUpForm()
             ],
           ),
         ),
