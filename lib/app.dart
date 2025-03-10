@@ -1,5 +1,5 @@
-import 'package:e_commerce/features/authentication/screens/onboarding/onboarding.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:e_commerce/bindings/general_biniding.dart';
+import 'package:e_commerce/features/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'features/utils/theme/theme.dart';
@@ -13,20 +13,21 @@ class App extends StatefulWidget {
   @override
   State<App> createState() => _AppState();
 }
+
 class _AppState extends State<App> {
-
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap:() => FocusManager.instance.primaryFocus?.unfocus(),
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: GetMaterialApp(
-
+        
         debugShowCheckedModeBanner: false,
         themeMode: ThemeMode.system,
-        theme:  AppTheme.lightTheme,
+        theme: AppTheme.lightTheme,
         darkTheme: AppTheme.darktTheme,
-        home: const OnBoardingScreen(),
+        initialBinding: GeneralBiniding(),
+        // adding loader to go to relevant screen decided by authentication repository
+        home: const Scaffold(backgroundColor: AppColors.primary, body: Center(child: CircularProgressIndicator())),
       ),
     );
   }
