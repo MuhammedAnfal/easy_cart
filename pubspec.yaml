@@ -90,19 +90,20 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
-  assets:
-     - assets/fonts/
-     - assets/images/on_boarding_images/
-     - assets/logos/
-     - assets/icons/
-     - assets/images/animations/
-     - assets/icons/categories/
-     - assets/images/banners/
-     - assets/images/products/
-     - assets/images/user/
-     - assets/images/reviews/
-     - assets/images/payment_success/
-     - assets/icons/payment_methods/
+  # assets:
+  #    - assets/fonts/
+  #    - assets/images/on_boarding_images/
+  #    - assets/logos/
+  #    - assets/icons/
+  #    - assets/images/animations/
+  #    - assets/icons/categories/
+  #    - assets/images/banners/
+  #    - assets/images/products/
+  #    - assets/images/user/
+  #    - assets/images/reviews/
+  #    - assets/images/payment_success/
+  #    - assets/icons/payment_methods/
+  
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
