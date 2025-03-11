@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:e_commerce/common/widgets/appbar/appbar.dart';
 import 'package:e_commerce/common/widgets/custom_shapes/containers/circular_container.dart';
@@ -29,7 +28,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   // late Razorpay _razorpay;
 
   void _handlePaymentSuccess(PaymentSuccessResponse response) {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Success')));
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Success')));
   }
 
   void _handlePaymentError(PaymentFailureResponse response) {
