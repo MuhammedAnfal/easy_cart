@@ -1,6 +1,4 @@
 import 'package:e_commerce/features/shop/models/banner_model.dart';
-import 'package:e_commerce/features/utils/constants/image_strings.dart';
-import 'package:flutter/material.dart';
 
 class AppDummyData {
   //-- banners

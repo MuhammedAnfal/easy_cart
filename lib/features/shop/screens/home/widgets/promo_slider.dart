@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_commerce/features/shop/controllers/banner_controller.dart';
-import 'package:e_commerce/features/shop/controllers/home_controller.dart';
 import 'package:e_commerce/features/utils/constants/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

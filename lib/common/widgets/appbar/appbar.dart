@@ -3,7 +3,6 @@ import 'package:e_commerce/features/utils/device/device_utility.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'dart:math';
 
 class AppsAppBar extends StatelessWidget implements PreferredSizeWidget {
   const AppsAppBar(
