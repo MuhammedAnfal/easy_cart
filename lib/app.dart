@@ -1,5 +1,6 @@
 import 'package:e_commerce/bindings/general_biniding.dart';
 import 'package:e_commerce/features/utils/constants/colors.dart';
+import 'package:e_commerce/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'features/utils/theme/theme.dart';
@@ -21,7 +22,7 @@ class _AppState extends State<App> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: GetMaterialApp(
-        
+        getPages: AppRoutes.pages,
         debugShowCheckedModeBanner: false,
         themeMode: ThemeMode.system,
         theme: AppTheme.lightTheme,

@@ -16,11 +16,13 @@ class BannerRepository extends GetxController {
   Future<List<BannerModel>> fetchBanners() async {
     try {
       final result = await _db.collection('banners').where('active', isEqualTo: true).get();
+      print('repository');
+      print(result.docs.length);
       return result.docs.map((documentSnapshot) => BannerModel.fromMap(documentSnapshot.data())).toList();
     } on FirebaseException catch (e) {
       throw AppFirebaseException(e.code).message;
     }  on FormatException catch (e) {
-      throw AppFormatException();
+      throw const AppFormatException();
     } on PlatformException catch (e) {
       throw AppFirebaseAuthExceptions(e.code).message;
     } catch (e) {

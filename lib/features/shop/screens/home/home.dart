@@ -74,32 +74,29 @@ class HomeScreenState extends State<HomeScreen> {
             ),
 
             //-- banners in the home screen
-            Column(
-              children: [
-                const HomePromoCarousel(
-                  banners: [
-                    AppImages.banner1,
-                    AppImages.banner2,
-                    AppImages.banner3,
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: AppSizes.defaultSpace),
-                  child: AppSectionHeading(
-                    onPressed: () => Get.to(const AllProducts()),
-                    title: 'Popular Products',
-                    showActionButton: true,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  const HomePromoCarousel(),
+                  Padding(
+                    padding: const EdgeInsets.only(left: AppSizes.defaultSpace),
+                    child: AppSectionHeading(
+                      onPressed: () => Get.to(const AllProducts()),
+                      title: 'Popular Products',
+                      showActionButton: true,
+                    ),
                   ),
-                ),
-                AppGridLayout(
-                  mainAxisExtend: 250,
-                  itemBuilder: (_, index) => const Padding(
-                    padding: EdgeInsets.all(8),
-                    child: ProductCardVertical(),
+                  AppGridLayout(
+                    mainAxisExtend: 250,
+                    itemBuilder: (_, index) => const Padding(
+                      padding: EdgeInsets.all(8),
+                      child: ProductCardVertical(),
+                    ),
+                    itemCount: 2,
                   ),
-                  itemCount: 2,
-                ),
-              ],
+                ],
+              ),
             ),
             const SizedBox(height: AppSizes.spaceBtwSections),
             //-- popular products

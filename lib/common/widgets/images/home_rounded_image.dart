@@ -32,6 +32,8 @@ class HomeRoundedImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('rounded image');
+    print(imageUrl);
     return GestureDetector(
       onTap: onPressed,
       child: Container(

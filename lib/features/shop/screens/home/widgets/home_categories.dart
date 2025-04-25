@@ -30,9 +30,7 @@ class AppHomeScreenCategories extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           shrinkWrap: true,
           itemBuilder: (context, index) {
-            print(categoryController.featuredcategories.length);
             final category = categoryController.featuredcategories[index];
-            print(category.image);
             return AppPopularCategoriesWidget(
               title: category.name.toString(),
               image: category.image,

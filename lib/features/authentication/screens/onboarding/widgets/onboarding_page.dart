@@ -8,6 +8,7 @@ class OnBoardingPage extends StatelessWidget {
     super.key, required this.image, required this.title, required this.subTitle,
   });
   final String image,title,subTitle;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
