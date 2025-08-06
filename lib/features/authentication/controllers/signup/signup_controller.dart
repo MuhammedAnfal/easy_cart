@@ -42,7 +42,9 @@ class SignupController extends GetxController {
       // Privacy policy check
       if (!privacyPolicy.value) {
         Loaders.warningSnackBar(
-            title: 'Accept Privacy Policy', message: 'You must accept the Privacy Policy and Terms of Use to create an account.');
+            title: 'Accept Privacy Policy',
+            message:
+                'You must accept the Privacy Policy and Terms of Use to create an account.');
         return;
       }
 
@@ -53,8 +55,8 @@ class SignupController extends GetxController {
       );
 
       // Register user
-      final userCredential =
-          await AuthenticationRepository.instance.registerWithEmailAndPassword(email.text.trim(), password.text.trim());
+      final userCredential = await AuthenticationRepository.instance
+          .registerWithEmailAndPassword(email.text.trim(), password.text.trim());
 
       // Save user data
       final newUser = UserModel(
@@ -71,7 +73,9 @@ class SignupController extends GetxController {
       await userRepository.saveUserRecord(newUser);
 
       // Show success message
-      Loaders.successSnackBar(title: 'Congratulations', message: 'Your account has been created! Verify your email to continue.');
+      Loaders.successSnackBar(
+          title: 'Congratulations',
+          message: 'Your account has been created! Verify your email to continue.');
 
       // Navigate to verify email screen
       AppFullScreenLoader.stopLoading();

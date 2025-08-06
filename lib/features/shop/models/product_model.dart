@@ -174,14 +174,22 @@ class ProductModel {
       salesPrice: map['salesPrice'] ?? 0,
       thumbnail: map['thumbnail'] ?? '',
       isFeatured: map['isFeatured'] ?? false,
-      brand: map['brand'] as BrandModel,
+      brand: BrandModel.fromMap(map['brand'] ?? {}),
       description: map['description'] ?? '',
       categoryId: map['categoryId'] ?? '',
       images: map['images'] ?? [],
       productType: map['productType'] ?? '',
-      productAttributes: map['productAttributes']?? [],
-      productVariations: map['productVariations'] ?? [],
+      productAttributes: (map['productAttributes'] as List<dynamic>)
+          .map(
+            (e) => ProductAttributeModel.fromMap(e),
+          )
+          .toList(),
+      productVariations: (map['productVariations'] as List<dynamic>)
+              .map(
+                (e) => ProductVariationModel.fromMap(e),
+              )
+              .toList() ??
+          [],
     );
   }
-
 }
