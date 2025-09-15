@@ -1,5 +1,7 @@
 import 'package:e_commerce/common/widgets/layOut/grid_layout.dart';
 import 'package:e_commerce/common/widgets/products/products_cards/product_card_vertical.dart';
+import 'package:e_commerce/common/widgets/shimmer/vertical_product_shimmer.dart';
+import 'package:e_commerce/features/shop/controllers/product_controller.dart';
 import 'package:e_commerce/features/shop/screens/all_products/all_products.dart';
 import 'package:e_commerce/features/shop/screens/home/widgets/home_appBar.dart';
 import 'package:e_commerce/features/shop/screens/home/widgets/home_categories.dart';
@@ -29,6 +31,7 @@ class HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProductController());
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -87,13 +90,25 @@ class HomeScreenState extends State<HomeScreen> {
                       showActionButton: true,
                     ),
                   ),
-                  AppGridLayout(
-                    mainAxisExtend: 250,
-                    itemBuilder: (_, index) => const Padding(
-                      padding: EdgeInsets.all(8),
-                      child: ProductCardVertical(),
-                    ),
-                    itemCount: 2,
+                  Obx(
+                    () {
+                      if(controller.isLoading.value){
+                        return const  VerticalProductShimmer();
+                      }
+                      if(controller.featuredProduct.isEmpty){
+                        return Center(child: Text('No Data Found',style: Theme.of(context).textTheme.bodyMedium,),);
+                      }
+                     return AppGridLayout(
+                        mainAxisExtend: 250,
+                        itemBuilder: (_, index) =>
+                         Padding(
+                          padding:const  EdgeInsets.all(8),
+                          child: ProductCardVertical(product:controller.featuredProduct[index] ,),
+                        ),
+                        itemCount: controller.featuredProduct.length,
+                      );
+
+                    }
                   ),
                 ],
               ),

@@ -5,10 +5,12 @@ import 'package:e_commerce/common/widgets/images/home_rounded_image.dart';
 import 'package:e_commerce/common/widgets/texts/product_price_text.dart';
 import 'package:e_commerce/common/widgets/texts/app_brand_title_with_verified_icon.dart';
 import 'package:e_commerce/common/widgets/texts/product_title_text.dart';
+import 'package:e_commerce/features/shop/controllers/product_controller.dart';
+import 'package:e_commerce/features/shop/models/product_model.dart';
 import 'package:e_commerce/features/shop/screens/product_details/product_detail.dart';
 import 'package:e_commerce/features/utils/constants/colors.dart';
 import 'package:e_commerce/features/utils/constants/enums.dart';
-import 'package:e_commerce/features/utils/constants/image_strings.dart';
+
 import 'package:e_commerce/features/utils/constants/sizes.dart';
 import 'package:e_commerce/features/utils/helpers/helper_function.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +18,9 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class ProductCardVertical extends StatefulWidget {
-  const ProductCardVertical({super.key});
+  const ProductCardVertical({super.key,  required this.product});
+
+  final ProductModel product;
 
   @override
   State<ProductCardVertical> createState() => _ProductCardVerticalState();
@@ -26,11 +30,13 @@ class _ProductCardVerticalState extends State<ProductCardVertical> {
   @override
   Widget build(BuildContext context) {
     final dark = AppHelperFunction.isDarkMode(context);
+    final controller = ProductController.instance;
+    final salesPercentage = controller.calculateSalesPercentage(widget.product.price, widget.product.salesPrice );
     return Scaffold(
       body: Column(
         children: [
           GestureDetector(
-            onTap: () => Get.to(() => const ProductDetail()),
+            onTap: () => Get.to(() =>  ProductDetail(product:widget.product,)),
             child: Container(
               // height: AppHelperFunction.screenHeight() * 0.268,
               padding: const EdgeInsets.all(1),
@@ -48,8 +54,8 @@ class _ProductCardVerticalState extends State<ProductCardVertical> {
                     backgroudColor: dark ? AppColors.dark : AppColors.light,
                     child: Stack(
                       children: [
-                        const HomeRoundedImage(
-                          imageUrl: AppImages.shoes1,
+                         HomeRoundedImage(
+                          imageUrl:widget.product.thumbnail,
                           applyImageRadius: true,
                         ),
                         //-- sale tag
@@ -66,7 +72,7 @@ class _ProductCardVerticalState extends State<ProductCardVertical> {
                               vertical: AppSizes.xs,
                             ),
                             child: Center(
-                              child: Text('25%',
+                              child: Text('$salesPercentage%',
                                   style: Theme.of(context)
                                       .textTheme
                                       .labelLarge!
@@ -89,17 +95,21 @@ class _ProductCardVerticalState extends State<ProductCardVertical> {
                       ],
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(left: AppSizes.sm),
+                   Padding(
+                    padding:const EdgeInsets.only(left: AppSizes.sm),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        ProductTitleText(title: 'Grey Nike Jordan', smallSize: true),
-                        SizedBox(
+
+                        //-- product title
+                        ProductTitleText(title:widget.product.title, smallSize: true),
+
+                        const SizedBox(
                           height: AppSizes.spaceBtwItems / 2,
                         ),
-                        AppBradTitleWithVerifiedIcon(
-                          title: 'Nike',
+
+                         AppBradTitleWithVerifiedIcon(
+                          title:widget?.product.brand?.name ??"",
                           brandTextSized: TextSizes.large,
                         ),
                       ],
@@ -111,12 +121,25 @@ class _ProductCardVerticalState extends State<ProductCardVertical> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       //-- price
-                      const Padding(
-                        padding: EdgeInsets.only(left: AppSizes.sm),
-                        child: AppProductPriceText(
-                          price: ' 35.0',
-                        ),
-                      ),
+                       Flexible(
+                         child: Column(
+                           children: [
+                             if(widget.product.productType == ProductType.single.toString() && widget.product.salesPrice > 0)
+                               Padding(
+                                 padding:const EdgeInsets.only(left: AppSizes.sm),
+                                 child: Text(widget.product.price.toString(),style: Theme.of(context).textTheme.labelMedium!.apply(decoration: TextDecoration.lineThrough),)
+                               ),
+
+                             //-- show sale price as main price  if sale exist
+                             Padding(
+                              padding:const EdgeInsets.only(left: AppSizes.sm),
+                              child: AppProductPriceText(
+                                price: controller.getProductPrice(widget.product),
+                              ),
+                                                   ),
+                           ],
+                         ),
+                       ),
 
                       //-- add to cart button
                       Container(

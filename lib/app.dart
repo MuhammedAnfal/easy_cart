@@ -9,7 +9,7 @@ var height;
 var width;
 
 class App extends StatefulWidget {
-  const App({super.key});
+  const   App({super.key});
 
   @override
   State<App> createState() => _AppState();

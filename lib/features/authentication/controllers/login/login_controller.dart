@@ -12,6 +12,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginController extends GetxController {
+
   //-- variables
   final rememberMe = false.obs;
   final hidePassword = true.obs;

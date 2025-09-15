@@ -41,68 +41,6 @@ class ProductModel {
     this.productVariations,
   });
 
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      (other is ProductModel &&
-          runtimeType == other.runtimeType &&
-          id == other.id &&
-          stock == other.stock &&
-          sku == other.sku &&
-          price == other.price &&
-          title == other.title &&
-          date == other.date &&
-          salesPrice == other.salesPrice &&
-          thumbnail == other.thumbnail &&
-          isFeatured == other.isFeatured &&
-          brand == other.brand &&
-          description == other.description &&
-          categoryId == other.categoryId &&
-          images == other.images &&
-          productType == other.productType &&
-          productAttributes == other.productAttributes &&
-          productVariations == other.productVariations);
-
-  @override
-  int get hashCode =>
-      id.hashCode ^
-      stock.hashCode ^
-      sku.hashCode ^
-      price.hashCode ^
-      title.hashCode ^
-      date.hashCode ^
-      salesPrice.hashCode ^
-      thumbnail.hashCode ^
-      isFeatured.hashCode ^
-      brand.hashCode ^
-      description.hashCode ^
-      categoryId.hashCode ^
-      images.hashCode ^
-      productType.hashCode ^
-      productAttributes.hashCode ^
-      productVariations.hashCode;
-
-  @override
-  String toString() {
-    return 'ProductModel{' +
-        ' id: $id,' +
-        ' stock: $stock,' +
-        ' sku: $sku,' +
-        ' price: $price,' +
-        ' title: $title,' +
-        ' date: $date,' +
-        ' salesPrice: $salesPrice,' +
-        ' thumbnail: $thumbnail,' +
-        ' isFeatured: $isFeatured,' +
-        ' brand: $brand,' +
-        ' description: $description,' +
-        ' categoryId: $categoryId,' +
-        ' images: $images,' +
-        ' productType: $productType,' +
-        ' productAttributes: $productAttributes,' +
-        ' productVariations: $productVariations,' +
-        '}';
-  }
 
   ProductModel copyWith({
     String? id,
@@ -163,6 +101,8 @@ class ProductModel {
     };
   }
 
+static ProductModel empty()=>ProductModel(id: '', stock: 0, price: 0, title: '', salesPrice: 0, thumbnail: '', productType: '');
+
   factory ProductModel.fromMap(Map<String, dynamic> map) {
     return ProductModel(
       id: map['id'] ?? '',
@@ -188,8 +128,7 @@ class ProductModel {
               .map(
                 (e) => ProductVariationModel.fromMap(e),
               )
-              .toList() ??
-          [],
+              .toList() ,
     );
   }
 }

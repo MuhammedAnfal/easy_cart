@@ -17,7 +17,8 @@ class AppFullScreenLoader {
       builder: (_) => PopScope(
           canPop: false,
           child: Container(
-            color: AppHelperFunction.isDarkMode(Get.context!) ? AppColors.dark : AppColors.white,
+            color:
+                AppHelperFunction.isDarkMode(Get.context!) ? AppColors.dark : AppColors.white,
             width: double.infinity,
             height: double.infinity,
             child: SingleChildScrollView(
@@ -35,9 +36,7 @@ class AppFullScreenLoader {
   //-- stop currently open loading dialog
   //-- this method doesnt return anything
   static stopLoading() {
-    
-      // Navigator.pop(Get.context!);
-      Navigator.of(Get.overlayContext!).pop();
-    
+    // Navigator.pop(Get.context!);
+    Navigator.of(Get.overlayContext!).pop();
   }
 }
