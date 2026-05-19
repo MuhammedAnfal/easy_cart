@@ -58,6 +58,27 @@ class AppDummyData {
     ),
   ];
 
+  //-- list of all brands
+  static final List<BrandModel> brands = [
+    BrandModel(id: '1', name: 'Nike', image: AppImages.nikeLogo, isFeatured: true, productsCount: 265),
+    BrandModel(id: '2', name: 'Adidas', image: AppImages.adidasLogo, isFeatured: true, productsCount: 245),
+    BrandModel(id: '3', name: 'Puma', image: AppImages.pumaLogo, isFeatured: false, productsCount: 200),
+    BrandModel(id: '4', name: 'Samsung', image: AppImages.samsungLogo, isFeatured: true, productsCount: 180),
+    BrandModel(id: '5', name: 'Apple', image: AppImages.appleLogo, isFeatured: true, productsCount: 180),
+    BrandModel(id: '6', name: 'Jordan', image: AppImages.jordanLogo, isFeatured: true, productsCount: 180),
+    BrandModel(id: '7', name: 'Zara', image: AppImages.zaraLogo, isFeatured: true, productsCount: 180),
+  ];
+
+  //-- list of all brand categories
+  // static final List<Brand> brandCategories = [
+  //
+  // ]
+
+
+  //-- list of all Product Categories
+  // static final List<ProductCa> productCategories =[];
+
+
   //-- list of all  dummy products upload to firestore
   static final List<ProductModel> products = [
     ProductModel(
@@ -103,7 +124,8 @@ class AppDummyData {
               sku: 'ARB145')
         ],
         productType: 'productType.variable',
-        isFeatured: true),ProductModel(
+        isFeatured: true),
+    ProductModel(
         id: '004',
         stock: 10,
         price: 200,

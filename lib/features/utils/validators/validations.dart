@@ -20,7 +20,7 @@ class AppValidator {
       return 'Invalid email address.';
     }
     return null;
-  }
+  }   
 
   static String? validatePassword(String? value) {
     if (value == null || value.isEmpty) {

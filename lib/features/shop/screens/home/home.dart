@@ -1,7 +1,7 @@
 import 'package:e_commerce/common/widgets/layOut/grid_layout.dart';
 import 'package:e_commerce/common/widgets/products/products_cards/product_card_vertical.dart';
 import 'package:e_commerce/common/widgets/shimmer/vertical_product_shimmer.dart';
-import 'package:e_commerce/features/shop/controllers/product_controller.dart';
+import 'package:e_commerce/features/shop/controllers/product/product_controller.dart';
 import 'package:e_commerce/features/shop/screens/all_products/all_products.dart';
 import 'package:e_commerce/features/shop/screens/home/widgets/home_appBar.dart';
 import 'package:e_commerce/features/shop/screens/home/widgets/home_categories.dart';
@@ -12,7 +12,6 @@ import 'package:get/get.dart';
 import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
 import '../../../../common/widgets/custom_shapes/containers/search_container.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
-import '../../../utils/constants/image_strings.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -23,6 +22,7 @@ class HomeScreen extends StatefulWidget {
 
 class HomeScreenState extends State<HomeScreen> {
   var index;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -32,29 +32,28 @@ class HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(ProductController());
-
     return Scaffold(
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
-            const AppPrimaryHeaderContainer(
+            AppPrimaryHeaderContainer(
               child: Column(
                 children: [
                   /// app bar with cart icon
-                  AppHomeAppBar(),
+                  const AppHomeAppBar(),
 
                   /// gap between the items
-                  SizedBox(height: AppSizes.spaceBtwSections),
+                  const SizedBox(height: AppSizes.spaceBtwSections),
 
                   /// search field
-                  AppHomeSearchWidget(
+                  const AppHomeSearchWidget(
                     text: 'Search in store',
                   ),
-                  SizedBox(height: AppSizes.spaceBtwSections),
+                  const SizedBox(height: AppSizes.spaceBtwSections),
 
                   /// categories
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(left: AppSizes.defaultSpace),
                     child: Column(
                       children: [
@@ -71,6 +70,9 @@ class HomeScreenState extends State<HomeScreen> {
                         AppHomeScreenCategories()
                       ],
                     ),
+                  ),
+                  SizedBox(
+                    height: context.height * 0.03,
                   )
                 ],
               ),
@@ -90,26 +92,29 @@ class HomeScreenState extends State<HomeScreen> {
                       showActionButton: true,
                     ),
                   ),
-                  Obx(
-                    () {
-                      if(controller.isLoading.value){
-                        return const  VerticalProductShimmer();
-                      }
-                      if(controller.featuredProduct.isEmpty){
-                        return Center(child: Text('No Data Found',style: Theme.of(context).textTheme.bodyMedium,),);
-                      }
-                     return AppGridLayout(
-                        mainAxisExtend: 250,
-                        itemBuilder: (_, index) =>
-                         Padding(
-                          padding:const  EdgeInsets.all(8),
-                          child: ProductCardVertical(product:controller.featuredProduct[index] ,),
-                        ),
-                        itemCount: controller.featuredProduct.length,
-                      );
-
+                  Obx(() {
+                    if (controller.isLoading.value) {
+                      return const VerticalProductShimmer();
                     }
-                  ),
+                    if (controller.featuredProduct.isEmpty) {
+                      return Center(
+                        child: Text(
+                          'No Data Found',
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                      );
+                    }
+                    return AppGridLayout(
+                      mainAxisExtend: 250,
+                      itemBuilder: (_, index) => Padding(
+                        padding: const EdgeInsets.all(8),
+                        child: ProductCardVertical(
+                          product: controller.featuredProduct[index],
+                        ),
+                      ),
+                      itemCount: controller.featuredProduct.length,
+                    );
+                  }),
                 ],
               ),
             ),

@@ -6,6 +6,7 @@ import 'package:e_commerce/common/widgets/texts/section_heading.dart';
 import 'package:e_commerce/data/repositories/authentication/authentication_repository.dart';
 import 'package:e_commerce/features/personalization/screens/address/address.dart';
 import 'package:e_commerce/features/personalization/screens/profile/profile.dart';
+import 'package:e_commerce/features/personalization/screens/profile/widgets/upload_datas_section.dart';
 import 'package:e_commerce/features/shop/screens/order/order.dart';
 import 'package:e_commerce/features/utils/constants/colors.dart';
 import 'package:e_commerce/features/utils/constants/sizes.dart';
@@ -110,7 +111,10 @@ class SettingsScreen extends StatelessWidget {
                   const SizedBox(
                     height: AppSizes.spaceBtwItems,
                   ),
-                  const AppSettingsMenuTile(
+                   AppSettingsMenuTile(
+                    onTap: () {
+                      Get.to(()=> const UploadDatasSection());
+                    },
                     icon: Iconsax.document_upload,
                     title: 'Load Data',
                     subTitle: 'Upload your data to Cloud Firebase',

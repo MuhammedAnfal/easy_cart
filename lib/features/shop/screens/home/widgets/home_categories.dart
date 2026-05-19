@@ -34,6 +34,7 @@ class AppHomeScreenCategories extends StatelessWidget {
             return AppPopularCategoriesWidget(
               title: category.name.toString(),
               image: category.image,
+              isNetworkImage: true,
               ontap: () => Get.to(() => const SubCategoriesScreen()),
             );
           },

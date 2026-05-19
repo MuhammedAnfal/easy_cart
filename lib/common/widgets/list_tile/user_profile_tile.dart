@@ -17,8 +17,9 @@ class AppUserProfileTile extends StatelessWidget {
     final controller = UserController.instance;
     return Obx(
       () => ListTile(
-        leading: const AppCircularImage(
-          image: AppImages.userIcon,
+        leading:  AppCircularImage(
+          isNetworkImage: true,
+          image:    controller.user.value.profilePicture.toString(),
           fit: BoxFit.contain,
           width: 50,
           height: 50,

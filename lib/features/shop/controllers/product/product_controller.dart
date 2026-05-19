@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:e_commerce/data/repositories/product/product_repository.dart';
 import 'package:e_commerce/features/shop/models/product_model.dart';
 import 'package:e_commerce/features/utils/constants/enums.dart';
@@ -89,4 +87,10 @@ class ProductController extends GetxController {
 String getStockStatus(int stock){
     return stock > 0 ? 'In Stock' : 'Out of Stock';
 }
+
+// Future<void> uploadProducts() {
+//     isLoading.value = false;
+//
+//
+// }
 }

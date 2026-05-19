@@ -72,4 +72,13 @@ class AppImages {
 
   //-- payment success
   static const String paymentSuccess = 'assets/images/payment_success/payment-success.jpg';
+
+  //-- brand logos
+  static const String nikeLogo = 'assets/logos/nike.png';
+  static const String adidasLogo = 'assets/logos/adidas.png';
+  static const String pumaLogo = 'assets/logos/puma.png';
+  static const String appleLogo = 'assets/logos/apple.png';
+  static const String jordanLogo = 'assets/logos/jordan.png';
+  static const String samsungLogo = 'assets/logos/samsung.png';
+  static const String zaraLogo = 'assets/logos/zara.png';
 }

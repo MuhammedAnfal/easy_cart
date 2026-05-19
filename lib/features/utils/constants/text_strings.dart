@@ -35,6 +35,7 @@ class AppTexts {
   static const String and = "and";
   static const String submit = "submit";
   static const String done = "Done";
+
   // Authentication Headings Text
   static const String loginTitle = "Welcome back, ";
   static const String continueText   = "Continue";
@@ -49,5 +50,16 @@ class AppTexts {
   static const String emailNotRecivingMessage = "Didn't Get The Email? Check Your junk/spam or Resend it.";
   static const String yourAccuntCreatedTitle = "Your Account Successfully Created";
   static const String yourAccuntCreatedTitleSubTitle = "Welcome To Your Ultimate Shopping Destination: Yout Account is Created, Unleash The Joy Of Seamless Online Shopping";
+
+  //-- profile heading
+  static const String mainRecord = "Main Record";
+  static const String uploadCategory = "Upload Categories";
+  static const String uploadBrand = "Upload Brand";
+  static const String uploadBanners = "Upload Banners";
+  static const String uploadProducts = "Upload Products";
+  static const String uploadBrandAndCategory = "Upload Brand And Category Relation Data";
+  static const String uploadProductCategoriesRelational = "Upload Product  Categories Relational Data";
+  static const String relationShip = "Relationship";
+
 
 }
